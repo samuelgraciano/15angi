@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Años - Angi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: radial-gradient(circle,#2a002a,#000);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* PARTICULAS */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* SOBRE */
+#portada{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    cursor:pointer;
+}
+
+#portada h1{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    color:#ffccff;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow:0 0 10px pink;}
+    to {text-shadow:0 0 25px gold;}
+}
+
+/* CONTENIDO */
+#contenido{
+    display:none;
+    padding:20px;
+    animation:fade 1s ease;
+}
+
+h2{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    color:#ffc0cb;
+}
+
+/* TARJETAS */
+.card{
+    background:rgba(255,255,255,0.08);
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    max-width:420px;
+    box-shadow:0 0 25px rgba(255,192,203,0.6);
+}
+
+/* BOTONES */
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 20px;
+    background:#ff66cc;
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* VIDEO */
+video{
+    width:100%;
+    border-radius:15px;
+}
+
+.video-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.video-overlay{
+    position:absolute;
+    top:74%;
+    left:50%;
+    width:78%;
+    height:78%;
+    transform:translate(-50%,-50%);
+    object-fit:contain;
+    pointer-events:none;
+    opacity:.92;
+    mix-blend-mode:screen;
+}
+
+.video-corona{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:50%;
+    height:50%;
+    transform:translate(-50%,-50%);
+    object-fit:contain;
+    pointer-events:none;
+    opacity:.92;
+    mix-blend-mode:screen;
+}
+
+.video-texto-angi{
+    position:absolute;
+    top:30%;
+    left:50%;
+    width:50%;
+    height:50%;
+    transform:translate(-50%,-50%);
+    object-fit:contain;
+    pointer-events:none;
+    opacity:.92;
+    mix-blend-mode:screen;
+}
+
+.video-text{
+    position:absolute;
+    top:18%;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:3;
+    text-align:center;
+    pointer-events:none;
+}
+
+.video-text .OYPEnA{
+    font-size:1.45em !important;
+    font-weight:600 !important;
+    letter-spacing:0.5px;
+}
+
+.video-text .nombre{
+    display:block;
+    margin-top:4px;
+    font-size:1.2em;
+    font-weight:500;
+    color:rgb(253, 153, 142);
+}
+
+/* GALERIA AUTO */
+.slider{
+    width:100%;
+    max-width:300px;
+    margin:auto;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    animation:slide 10s infinite;
+}
+
+.slides img{
+    width:100%;
+    border-radius:15px;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0);}
+    50%{transform:translateX(-100%);}
+    100%{transform:translateX(0);}
+}
+
+/* CONTADOR */
+#contador{
+    font-size:1.4rem;
+    margin:20px;
+}
+
+/* ANIMACION */
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- MUSICA -->
+<audio id="musica" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+</audio>
+
+<!-- PORTADA -->
+<div id="portada" onclick="abrir()">
+    <h1>Mis 15 Años</h1>
+    <h2>Angi</h2>
+    <p>💌 Toca para abrir 💌</p>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido">
+
+    <h2>✨ Mis 15 Años ✨</h2>
+
+    <p>Hoy comienza un día mágico en mi vida 💖</p>
+
+    <!-- VIDEO -->
+    <div class="card video-card">
+        <video controls autoplay muted loop>
+            <source src="https://blubluinvita.com/amaliaorozcolopera230825/_assets/video/df05fa8c35584559a1d9be6fd2aa26a0.mp4">
+        </video>
+        <div class="video-text">
+            <span class="OYPEnA" style="font-size: 1em; font-weight: 400; font-style: normal; color: rgb(253, 153, 142); font-kerning: none; text-decoration: none;">MIS 15 AÑOS</span>
+            
+        </div>
+        <img class="video-texto-angi" src="angi_color_oro.png" alt="Decoracion del video">
+        <img class="video-corona" src="https://blubluinvita.com/amaliaorozcolopera230825/_assets/media/ca9b1b3fff374e6155a47e21dcf8ef45.png" alt="Decoracion del video">
+        <img class="video-overlay" src="https://blubluinvita.com/amaliaorozcolopera230825/_assets/media/2ef8a39f3153457b72f9ea743289789e.png" alt="Decoracion del video">
+    </div>
+
+    <!-- CONTADOR -->
+    <div id="contador"></div>
+
+    <!-- GALERIA -->
+    <div class="card">
+        <h3>📸 Recuerdos</h3>
+        <div class="slider">
+            <div class="slides">
+                <img src="foto1.jpeg">
+                <img src="foto2.jpeg">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📅 Fecha </h3>
+        <p>20 de Agosto de 2026</p>
+    </div>
+
+    <div class="card">
+        <h3>⏰ Hora</h3>
+        <p>7:00 PM</p>
+    </div>
+
+    <div class="card">
+        <h3>📍 Lugar</h3>
+        <p>Eventos Elegance - Medellín</p>
+        <a class="btn" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+    </div>
+
+    <div class="card">
+        <h3>👗 Vestimenta</h3>
+        <p>Formal - Reserva Rosado</p>
+    </div>
+
+    <div class="card">
+        <h3>📲 Confirmar</h3>
+        <a class="btn" href="https://wa.me/573000000000?text=Confirmo asistencia">✅ Asistiré</a>
+        <a class="btn" href="https://wa.me/573000000000?text=No podré asistir">❌ No asistiré</a>
+    </div>
+
+    <div class="card">
+        <p>💝 Tu presencia es mi mejor regalo</p>
+    </div>
+
+</div>
+
+<script>
+function abrir(){
+    document.getElementById("portada").style.display="none";
+    document.getElementById("contenido").style.display="block";
+    document.getElementById("musica").play();
+}
+
+/* CONTADOR */
+var fecha=new Date("Aug 20, 2026 19:00:00").getTime();
+setInterval(function(){
+    var ahora=new Date().getTime();
+    var diff=fecha-ahora;
+
+    var dias=Math.floor(diff/(1000*60*60*24));
+    var horas=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    var min=Math.floor((diff%(1000*60*60))/(1000*60));
+
+    document.getElementById("contador").innerHTML=
+    "Faltan ✨ "+dias+" días, "+horas+" horas, "+min+" minutos";
+},1000);
+
+/* PARTICULAS */
+var c=document.getElementById("particles");
+var ctx=c.getContext("2d");
+c.width=window.innerWidth;
+c.height=window.innerHeight;
+
+var particles=[];
+for(let i=0;i<50;i++){
+    particles.push({
+        x:Math.random()*c.width,
+        y:Math.random()*c.height,
+        r:Math.random()*3+1,
+        d:Math.random()
+    });
+}
+
+function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.fillStyle="pink";
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+    });
+    update();
+}
+
+function update(){
+    particles.forEach(p=>{
+        p.y+=p.d+0.5;
+        if(p.y>c.height){
+            p.y=0;
+            p.x=Math.random()*c.width;
+        }
+    });
+}
+
+setInterval(draw,30);
+</script>
+
+</body>
+</html>
